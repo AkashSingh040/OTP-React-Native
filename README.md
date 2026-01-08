@@ -1,50 +1,79 @@
-# Welcome to your Expo app 👋
+# 📱 OTP-Based React Native Frontend (Android)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository contains a **React Native (Expo) mobile frontend application** that implements an **OTP-based onboarding flow** for a sports-focused app.
 
-## Get started
+The project was built as part of a **technical assignment for an SDE Intern role** and focuses on frontend architecture, API consumption, and user-centric UX refinement.
 
-1. Install dependencies
+> **Scope Note:**  
+> This is a **frontend client application**. It does **not serve APIs** — it **consumes provided backend APIs**.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 🔐 Authentication Flow
 
-   ```bash
-   npx expo start
-   ```
+1. User enters mobile number  
+2. OTP is sent via backend API  
+3. OTP is verified on the client  
+4. User proceeds to onboarding flow  
 
-In the output, you'll find options to open the app in a
+This reflects **real-world mobile authentication patterns** used in modern mobile apps.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🚀 Features
 
-## Get a fresh project
+- 📞 Mobile number login with OTP verification  
+- 🧾 Mandatory basic details  
+  - Name  
+  - Address  
+  - Pincode  
+- 🏏 Sports preferences  
+  - Playing status (single-select dropdown)  
+  - Multi-select sports with removable chips  
+  - Duplicate selection prevented  
+- 💬 Feedback screen  
+  - Fixed-size input box  
+  - Character counter  
+- 📋 Summary screen  
+  - Structured preview of entered data  
+- 🔙 Back navigation on every screen  
+- 🎨 Consistent dark theme UI  
+- 📦 Android APK generated using Expo EAS  
 
-When you're ready, run:
+---
+
+## 🧠 Design & Implementation Decisions
+
+- APIs are consumed using `fetch` for OTP send and verification.
+- Backend persistence and business logic are assumed to exist externally.
+- Figma designs were used as a **reference**, with UX refinements applied for:
+  - Better spacing and hierarchy  
+  - Improved mobile usability  
+  - Sports-centric interactions  
+- No third-party UI libraries were used to keep the implementation minimal and transparent.
+
+---
+
+## ⚙️ Tech Stack
+
+- React Native  
+- Expo  
+- Expo Router  
+- JavaScript  
+- EAS Build (Android APK)  
+
+---
+
+## ▶️ Running Locally
+
+### Prerequisites
+- Node.js (v16 or higher)
+- Expo CLI
+
+### Steps
 
 ```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+git clone https://github.com/<your-username>/react-native-otp-frontend.git
+cd react-native-otp-frontend
+npm install
+npm start
