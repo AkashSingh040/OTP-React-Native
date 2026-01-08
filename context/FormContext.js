@@ -9,7 +9,7 @@ export const FormProvider = ({ children }) => {
     address: '',
     pincode: '',
     playingStatus: '',
-    sport: '',
+    sports: [],        // ✅ FIX: array, not string
     feedback: '',
   });
 

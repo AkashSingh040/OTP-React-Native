@@ -1,34 +1,35 @@
-import { View, TextInput } from 'react-native';
-import { useRef } from 'react';
+import { View, TextInput } from "react-native";
+import { useRef } from "react";
+import { COLORS } from "../constants/colors";
 
 export default function OTPInput({ otp, setOtp }) {
   const refs = useRef([]);
 
-  const handleChange = (value, index) => {
+  const handleChange = (v, i) => {
     const next = [...otp];
-    next[index] = value;
+    next[i] = v;
     setOtp(next);
-    if (value && index < 3) refs.current[index + 1]?.focus();
+    if (v && i < 3) refs.current[i + 1]?.focus();
   };
 
   return (
-    <View style={{ flexDirection: 'row', gap: 10, marginTop: 20 }}>
+    <View style={{ flexDirection: "row", gap: 12, marginTop: 24 }}>
       {[0, 1, 2, 3].map((i) => (
         <TextInput
           key={i}
           ref={(el) => (refs.current[i] = el)}
+          value={otp[i]}
           maxLength={1}
           keyboardType="number-pad"
-          value={otp[i]}
           onChangeText={(v) => handleChange(v, i)}
           style={{
-            borderWidth: 1,
-            borderColor: '#888',
-            width: 50,
-            height: 50,
-            textAlign: 'center',
-            fontSize: 18,
-            color: '#fff',
+            width: 54,
+            height: 54,
+            borderRadius: 12,
+            backgroundColor: COLORS.input,
+            textAlign: "center",
+            fontSize: 20,
+            color: COLORS.text,
           }}
         />
       ))}

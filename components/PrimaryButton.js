@@ -1,20 +1,29 @@
-import { Pressable, Text } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { COLORS } from "../constants/colors";
 
 export default function PrimaryButton({ title, onPress, disabled }) {
   return (
-    <Pressable
+    <TouchableOpacity
       onPress={onPress}
       disabled={disabled}
-      style={{
-        backgroundColor: disabled ? '#444' : '#3B82F6',
-        padding: 14,
-        borderRadius: 8,
-        marginTop: 20,
-      }}
+      style={[styles.btn, { opacity: disabled ? 0.5 : 1 }]}
     >
-      <Text style={{ color: '#fff', textAlign: 'center', fontSize: 16 }}>
-        {title}
-      </Text>
-    </Pressable>
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 14,
+    borderRadius: 14,
+    alignItems: "center",
+    marginTop: 24,
+  },
+  text: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+});
